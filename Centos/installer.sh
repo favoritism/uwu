@@ -20,14 +20,13 @@ wget https://www.softether-download.com/files/softether/v4.34-9745-rtm-2020.04.0
 tar zxf softether-vpnserver*
 cd vpnserver
 clear
-chmod 600 * && chmod 700 * && echo "Giving needed permissions to files in vpnserver/"
-ranlib /home/root/vpnserver/lib/libcharset.a && ranlib /home/root/vpnserver/lib/libcrypto.a && ranlib /home/root/vpnserver/lib/libedit.a && ranlib /home/root/vpnserver/lib/libiconv.a && ranlib /home/root/vpnserver/lib/libintelaes.a && ranlib /home/root/vpnserver/lib/libssl.a && ranlib /home/root/vpnserver/lib/libncurses.a && ranlib /home/root/vpnserver/lib/libz.a && echo "Ranlib..."
-ranlib /home/root/vpn*/code/vpnserver.a && echo "vpnserver.a"
-gcc code/vpnserver.a -O2 -fsigned-char -pthread -m64 -lm -ldl -lrt -lpthread -L./ /home/root/vpnserver/lib/libssl.a /home/root/vpnserver/lib/libcrypto.a /home/root/vpnserver/lib/libiconv.a /home/root/vpnserver/lib/libcharset.a /home/root/vpnserver/lib/libedit.a /home/root/vpnserver/lib/libncurses.a /home/root/vpnserver/lib/libz.a /home/root/vpnserver/lib/libintelaes.a -o vpnserver && echo "Compiling vpnserver..."
-ranlib /home/root/vpnserver/code/vpncmd.a && echo "vpncmd.a"
-gcc code/vpncmd.a -O2 -fsigned-char -pthread -m64 -lm -ldl -lrt -lpthread -L./ /home/root/vpnserver/lib/libssl.a /home/root/vpnserver/lib/libcrypto.a /home/root/vpnserver/lib/libiconv.a /home/root/vpnserver/lib/libcharset.a /home/root/vpnserver/lib/libedit.a /home/root/vpnserver/lib/libncurses.a /home/root/vpnserver/lib/libz.a /home/root/vpnserver/lib/libintelaes.a -o vpncmd && echo "Compiling vpncmd..."
-/home/root/vpnserver/vpncmd /tool /cmd:Check && echo "Check Done, if all passed then the vpn setup should work properly..."
-cd /root
+cd vpnserver && chmod 600 * && chmod 700 * && echo "Giving needed permissions to files in vpnserver/"
+ranlib /root/vpnserver/lib/libcharset.a && ranlib /root/vpnserver/lib/libcrypto.a && ranlib /root/vpnserver/lib/libedit.a && ranlib /root/vpnserver/lib/libiconv.a && ranlib /root/vpnserver/lib/libintelaes.a && ranlib /root/vpnserver/lib/libssl.a && ranlib /root/vpnserver/lib/libncurses.a && ranlib /root/vpnserver/lib/libz.a && echo "Ranlib..."
+ranlib /root/vpn*/code/vpnserver.a && echo "vpnserver.a"
+gcc code/vpnserver.a -O2 -fsigned-char -pthread -m64 -lm -ldl -lrt -lpthread -L./ /root/vpnserver/lib/libssl.a /root/vpnserver/lib/libcrypto.a /root/vpnserver/lib/libiconv.a /root/vpnserver/lib/libcharset.a /root/vpnserver/lib/libedit.a /root/vpnserver/lib/libncurses.a /root/vpnserver/lib/libz.a /root/vpnserver/lib/libintelaes.a -o vpnserver && echo "Compiling vpnserver..."
+ranlib /root/vpnserver/code/vpncmd.a && echo "vpncmd.a"
+gcc code/vpncmd.a -O2 -fsigned-char -pthread -m64 -lm -ldl -lrt -lpthread -L./ /root/vpnserver/lib/libssl.a /root/vpnserver/lib/libcrypto.a /root/vpnserver/lib/libiconv.a /root/vpnserver/lib/libcharset.a /root/vpnserver/lib/libedit.a /root/vpnserver/lib/libncurses.a /root/vpnserver/lib/libz.a /root/vpnserver/lib/libintelaes.a -o vpncmd && echo "Compiling vpncmd..."
+/root/vpnserver/vpncmd /tool /cmd:Check && echo "Check Done, if all passed then the vpn setup should work properly..."cd /root
 mv vpnserver /usr/local
 rm -rf softether-vpnserver*
 cd /usr/local/vpnserver
