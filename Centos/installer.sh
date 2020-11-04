@@ -39,7 +39,7 @@ cd /root
 wget https://www.softether-download.com/files/softether/v4.34-9745-rtm-2020.04.05-tree/Linux/SoftEther_VPN_Client/64bit_-_Intel_x64_or_AMD64/softether-vpnclient-v4.34-9745-rtm-2020.04.05-linux-x64-64bit.tar.gz
 tar zxf softether-vpnclient*
 clear
-chmod 600 * && chmod 700 vpncmd && chmod 700 vpnclient && echo "Giving needed permissions to files in vpnclient/"
+cd vpnclient && chmod 600 * && chmod 700 vpncmd && chmod 700 vpnclient && echo "Giving needed permissions to files in vpnclient/"
 ranlib lib/libcharset.a && ranlib lib/libcrypto.a && ranlib lib/libedit.a && ranlib lib/libiconv.a && ranlib lib/libintelaes.a && ranlib lib/libncurses.a && ranlib lib/libssl.a && ranlib lib/libz.a && ranlib code/vpnclient.a && echo "Ranlib..."
 gcc code/vpnclient.a -O2 -fsigned-char -pthread -m64 -lm -ldl -lrt -lpthread -L./ lib/libssl.a lib/libcrypto.a lib/libiconv.a lib/libcharset.a lib/libedit.a lib/libncurses.a lib/libz.a lib/libintelaes.a -o vpnclient && echo "Compiling vpnclient..."
 ranlib code/vpncmd.a && echo "vpncmd.a"
