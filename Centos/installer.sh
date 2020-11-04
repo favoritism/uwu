@@ -40,10 +40,10 @@ wget https://www.softether-download.com/files/softether/v4.34-9745-rtm-2020.04.0
 tar zxf softether-vpnclient*
 clear
 cd vpnclient && chmod 600 * && chmod 700 vpncmd && chmod 700 vpnclient && echo "Giving needed permissions to files in vpnclient/"
-ranlib lib/libcharset.a && ranlib lib/libcrypto.a && ranlib lib/libedit.a && ranlib lib/libiconv.a && ranlib lib/libintelaes.a && ranlib lib/libncurses.a && ranlib lib/libssl.a && ranlib lib/libz.a && ranlib code/vpnclient.a && echo "Ranlib..."
-gcc code/vpnclient.a -O2 -fsigned-char -pthread -m64 -lm -ldl -lrt -lpthread -L./ lib/libssl.a lib/libcrypto.a lib/libiconv.a lib/libcharset.a lib/libedit.a lib/libncurses.a lib/libz.a lib/libintelaes.a -o vpnclient && echo "Compiling vpnclient..."
-ranlib code/vpncmd.a && echo "vpncmd.a"
-gcc code/vpncmd.a -O2 -fsigned-char -pthread -m64 -lm -ldl -lrt -lpthread -L./ lib/libssl.a lib/libcrypto.a lib/libiconv.a lib/libcharset.a lib/libedit.a lib/libncurses.a lib/libz.a lib/libintelaes.a -o vpncmd && echo "Compiling vpncmd..."
+ranlib /root/vpnclient/liblibcharset.a && ranlib /root/vpnclient/liblibcrypto.a && ranlib /root/vpnclient/liblibedit.a && ranlib /root/vpnclient/liblibiconv.a && ranlib /root/vpnclient/liblibintelaes.a && ranlib /root/vpnclient/liblibncurses.a && ranlib /root/vpnclient/liblibssl.a && ranlib /root/vpnclient/liblibz.a && ranlib /root/vpnclient/code/vpnclient.a && echo "Ranlib..."
+gcc /root/vpnclient/code/vpnclient.a -O2 -fsigned-char -pthread -m64 -lm -ldl -lrt -lpthread -L./ /root/vpnclient/liblibssl.a /root/vpnclient/liblibcrypto.a /root/vpnclient/liblibiconv.a /root/vpnclient/liblibcharset.a /root/vpnclient/liblibedit.a /root/vpnclient/liblibncurses.a /root/vpnclient/liblibz.a /root/vpnclient/liblibintelaes.a -o vpnclient && echo "Compiling vpnclient..."
+ranlib /root/vpnclient/code/vpncmd.a && echo "vpncmd.a"
+gcc /root/vpnclient/code/vpncmd.a -O2 -fsigned-char -pthread -m64 -lm -ldl -lrt -lpthread -L./ /root/vpnclient/liblibssl.a /root/vpnclient/liblibcrypto.a /root/vpnclient/liblibiconv.a /root/vpnclient/liblibcharset.a /root/vpnclient/liblibedit.a /root/vpnclient/liblibncurses.a /root/vpnclient/liblibz.a /root/vpnclient/liblibintelaes.a -o vpncmd && echo "Compiling vpncmd..."
 ./vpnclient start && echo "Starting vpnclient..."
 cd /root/vpnclient/
 echo ---------------------------------------------
